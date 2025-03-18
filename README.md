@@ -1,2 +1,7 @@
-# stock-price-predictor
-A simple stock price prediction project using Linear Regression
+# Stock Price Predictor
+
+This project uses Linear Regression to predict stock prices based on historical data.
+
+## Installation
+```bash
+pip install -r requirements.txt
