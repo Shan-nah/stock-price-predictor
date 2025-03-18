@@ -4,7 +4,6 @@ import numpy as np
 import pandas as pd
 
 def visualize_predictions(y_test, y_pred, stock_symbol, X_test):
-    # Plot Actual vs Predicted with Dates
     dates = pd.date_range(end=pd.Timestamp.today(), periods=len(y_test))
 
     plt.figure(figsize=(12, 6))
@@ -20,11 +19,9 @@ def visualize_predictions(y_test, y_pred, stock_symbol, X_test):
     print(f"📊 Visualization saved as visualizations/{stock_symbol}_prediction.png")
 
 def plot_moving_averages(df, stock_symbol):
-    # Calculate Moving Averages
     df['MA30'] = df['Close'].rolling(window=30).mean()
     df['MA100'] = df['Close'].rolling(window=100).mean()
 
-    # Plot Moving Averages
     plt.figure(figsize=(12, 6))
     plt.plot(df['Date'], df['Close'], label='Close Price', color='blue')
     plt.plot(df['Date'], df['MA30'], label='30-Day MA', color='green')
@@ -39,7 +36,6 @@ def plot_moving_averages(df, stock_symbol):
     print(f"📈 Moving Averages plot saved as visualizations/{stock_symbol}_moving_averages.png")
 
 def plot_correlation_heatmap(df, stock_symbol):
-    # Correlation Heatmap
     plt.figure(figsize=(8, 6))
     sns.heatmap(df[['Close', 'High', 'Low', 'Open', 'Volume']].corr(), annot=True, cmap='coolwarm')
     plt.title(f'{stock_symbol} Correlation Heatmap')
